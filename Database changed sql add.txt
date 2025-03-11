@@ -1,0 +1,45 @@
+Database changed
+mysql> show tables;
++---------------------+
+| Tables_in_app_login |
++---------------------+
+| apps                |
+| questions           |
+| users               |
++---------------------+
+3 rows in set (0.00 sec)
+
+mysql> desc apps;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| appName  | varchar(255) | NO   |     | NULL    |                |
+| bundleId | varchar(255) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc questions;
++-----------+-----------+------+-----+-------------------+-----------------------------------------------+
+| Field     | Type      | Null | Key | Default           | Extra                                         |
++-----------+-----------+------+-----+-------------------+-----------------------------------------------+
+| id        | int       | NO   | PRI | NULL              | auto_increment                                |
+| text      | text      | NO   |     | NULL              |                                               |
+| appId     | int       | YES  | MUL | NULL              |                                               |
+| answer    | text      | YES  |     | NULL              |                                               |
+| createdAt | timestamp | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED                             |
+| updatedAt | timestamp | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
++-----------+-----------+------+-----+-------------------+-----------------------------------------------+
+6 rows in set (0.00 sec)
+
+mysql> desc users;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int          | NO   | PRI | NULL    | auto_increment |
+| username  | varchar(50)  | NO   | UNI | NULL    |                |
+| password  | varchar(50)  | NO   |     | NULL    |                |
+| email     | varchar(100) | NO   | UNI | NULL    |                |
+| full_name | varchar(100) | NO   |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
