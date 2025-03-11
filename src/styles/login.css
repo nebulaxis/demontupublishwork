@@ -1,0 +1,114 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background with Gradient Effect */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  padding: 20px;
+}
+
+/* Glassmorphism Form Box */
+.login-container form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-container form:hover {
+  transform: scale(1.02);
+}
+
+/* Heading Style */
+.login-container h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Input Fields */
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.login-container input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.login-container input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  border: 1px solid white;
+}
+
+/* Login Button with Neon Glow */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: #ff007f;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 4px 10px rgba(255, 0, 127, 0.3);
+}
+
+.login-container button:hover {
+  background: #ff0066;
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(255, 0, 127, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .login-container form {
+      padding: 30px;
+      width: 90%;
+  }
+
+  .login-container h2 {
+      font-size: 24px;
+  }
+
+  .login-container input {
+      font-size: 14px;
+      padding: 10px;
+  }
+
+  .login-container button {
+      font-size: 16px;
+      padding: 10px;
+  }
+}
