@@ -9,7 +9,7 @@ const AddApp = () => {
 
   const handleCreateApp = async () => {
     const newApp = { appName, bundleId };
-    const res = await axios.post("http://localhost:6002/create-app", newApp);
+    const res = await axios.post("https://ntuproject.24livehost.com:6003/create-app", newApp);
     if (res.data.success) {
       navigate(`/questions-form/${res.data.appId}`); // Redirect to add questions
     }

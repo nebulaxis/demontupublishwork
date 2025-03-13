@@ -14,7 +14,7 @@ const EditApp = () => {
 
   // Fetch app details
   useEffect(() => {
-    axios.get(`http://localhost:6002/get-app/${bundleId}`)
+    axios.get(`https://ntuproject.24livehost.com:6003/get-app/${bundleId}`)
       .then((res) => {
         if (res.data.success) {
           setAppName(res.data.appName);
@@ -30,7 +30,7 @@ const EditApp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(`http://localhost:6002/edit-app/${bundleId}`, { appName, questions });
+      const res = await axios.put(`https://ntuproject.24livehost.com:6003/edit-app/${bundleId}`, { appName, questions });
       if (res.data.success) {
         setMessage({ text: "App updated successfully!", type: "success" });
         setTimeout(() => navigate("/dashboard"), 1500);

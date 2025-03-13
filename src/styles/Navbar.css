@@ -1,0 +1,92 @@
+/* General Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Sidebar Toggle Button */
+  .toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .toggle-btn:hover {
+    color: #000;
+  }
+  
+  /* Search Box */
+  .search-box {
+    flex: 1;
+    max-width: 300px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-box:focus {
+    border-color: #007bff;
+  }
+  
+  /* User Profile Section */
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .username {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .profile-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 10px 15px;
+    }
+  
+    .search-box {
+      max-width: 200px;
+    }
+  
+    .toggle-btn {
+      font-size: 20px;
+    }
+  
+    .username {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .search-box {
+      display: none;
+    }
+  
+    .profile-icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  

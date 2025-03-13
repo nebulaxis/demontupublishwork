@@ -14,7 +14,7 @@ const Login = () => {
     setError(""); 
 
     try {
-      const response = await axios.post("http://localhost:6002/api/login", { username, password });
+      const response = await axios.post("https://ntuproject.24livehost.com:6003/api/login", { username, password });
 
       if (response.data.success) {
         // ✅ Store token in localStorage
@@ -33,26 +33,37 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
+    <div className="login-card">
+      <h2 className="login-heading">Welcome Back!</h2>
+      {error && <p className="error-message">{error}</p>}
+      <form onSubmit={handleLogin} className="login-form">
+        <div className="input-group">
+          <input
+            type="text"
+            className="login-input"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-group">
+          <input
+            type="password"
+            className="login-input"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="login-button">Login</button>
       </form>
+      <p className="login-footer">
+        Don't have an account? <a href="/register">Register here</a>
+      </p>
     </div>
+  </div>
   );
 };
 

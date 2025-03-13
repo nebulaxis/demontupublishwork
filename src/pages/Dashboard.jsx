@@ -14,7 +14,7 @@ const Dashboard = () => {
   // Fetch apps when component mounts
   useEffect(() => {
     axios
-      .get("http://localhost:6002/get-apps")
+      .get("https://ntuproject.24livehost.com:6003/get-apps")
       .then((res) => {
         if (res.data.success) {
           setApps(res.data.apps || []); // Ensure apps is an array

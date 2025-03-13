@@ -1,0 +1,89 @@
+/* Sidebar.css */
+
+.sidebar {
+    width: 250px; /* Default width for larger screens */
+    background-color: #343a40; /* Dark background color */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: width 0.3s; /* Smooth transition for width changes */
+    position: relative; /* Position relative for absolute positioning of active class */
+  }
+  
+  .sidebar.active {
+    width: 60px; /* Reduced width when sidebar is collapsed */
+  }
+  
+  .sidebar-logo {
+    width: 100%; /* Make logo responsive */
+    max-width: 150px; /* Limit the maximum width of the logo */
+    margin-bottom: 20px; /* Space below the logo */
+    transition: max-width 0.3s; /* Smooth transition for logo size */
+  }
+  
+  .sidebar.active .sidebar-logo {
+    max-width: 40px; /* Smaller logo when sidebar is collapsed */
+  }
+  
+  ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+  }
+  
+  li {
+    margin: 15px 0; /* Space between list items */
+  }
+  
+  .sidebar-link {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Flexbox for icon and text alignment */
+    align-items: center; /* Center items vertically */
+    transition: color 0.3s; /* Smooth transition for color changes */
+  }
+  
+  .sidebar-link:hover {
+    color: #007bff; /* Change color on hover */
+  }
+  
+  .sidebar-link svg {
+    margin-right: 10px; /* Space between icon and text */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px; /* Adjust width for smaller screens */
+    }
+  
+    .sidebar.active {
+      width: 50px; /* Further reduce width when collapsed */
+    }
+  
+    .sidebar-logo {
+      max-width: 120px; /* Adjust logo size */
+    }
+  
+    .sidebar.active .sidebar-logo {
+      max-width: 30px; /* Smaller logo when sidebar is collapsed */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      width: 180px; /* Further adjust width for mobile */
+    }
+  
+    .sidebar.active {
+      width: 40px; /* Minimal width when collapsed */
+    }
+  
+    .sidebar-logo {
+      max-width: 100px; /* Adjust logo size */
+    }
+  
+    .sidebar.active .sidebar-logo {
+      max-width: 25px; /* Smaller logo when sidebar is collapsed */
+    }
+  }

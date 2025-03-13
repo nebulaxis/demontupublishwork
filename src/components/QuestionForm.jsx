@@ -16,7 +16,7 @@ const QuestionsForm = () => {
   };
 
   const saveQuestions = async () => {
-    await axios.post(`http://localhost:6002/save-questions/${appId}`, { questions });
+    await axios.post(`https://ntuproject.24livehost.com:6003/save-questions/${appId}`, { questions });
     navigate("/dashboard");
   };
 

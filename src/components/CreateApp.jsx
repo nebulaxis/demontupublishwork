@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
+import '../styles/CreateApp.css'; // Import the CSS file
 
 const CreateApp = () => {
   const [appName, setAppName] = useState("");
@@ -17,7 +18,7 @@ const CreateApp = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:6002/create-app", { appName, bundleId });
+      const response = await axios.post("https://ntuproject.24livehost.com:6003/create-app", { appName, bundleId });
 
       if (response.data.success) {
         alert("✅ App Created Successfully!");
@@ -34,20 +35,32 @@ const CreateApp = () => {
   };
 
   return (
-    <div className="dashboard-container">
+    <div className="create-container">
       <Sidebar />
-      <div className="dashboard-main">
+      <div className="create-main">
         <Navbar />
-        <h2>Create New App</h2>
+        <h2 className="create-heading">Create New App</h2>
         {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit} className="app-form">
           <label>App Name:</label>
-          <input type="text" value={appName} onChange={(e) => setAppName(e.target.value)} required />
+          <input
+            type="text" value={appName}
+            onChange={(e) => setAppName(e.target.value)}
+            required
+          />
 
           <label>Bundle Identifier:</label>
-          <input type="text" value={bundleId} onChange={(e) => setBundleId(e.target.value)} required />
+          <input
+            type="text"
+            value={bundleId}
+            onChange={(e) => setBundleId(e.target.value)}
+            required
+          />
 
-          <button type="submit" disabled={loading}>
+          <button
+            type="submit"
+            disabled={loading}
+          >
             {loading ? "Creating..." : "Create App"}
           </button>
         </form>

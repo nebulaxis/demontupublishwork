@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 const AddQuestions = () => {
   const { id } = useParams(); // Get app ID from URL params
   const navigate = useNavigate();
+  const [appName, setAppName] = useState(""); // State for appName
   const [questions, setQuestions] = useState([]);
   const [newQuestion, setNewQuestion] = useState("");
   const [newAnswer, setNewAnswer] = useState("");
@@ -18,10 +19,11 @@ const AddQuestions = () => {
   // Function to fetch questions for the specific app
   const fetchQuestions = () => {
     axios
-      .get(`http://localhost:6002/get-questions-by-bundle/${id}`)
+      .get(`https://ntuproject.24livehost.com:6003/get-questions-by-bundle/${id}`) // Use the bundle ID from URL params
       .then((res) => {
         if (res.data.success) {
           setQuestions(res.data.questions);
+          setAppName(res.data.appName); // Update appName state
         } else {
           setMessage({ text: res.data.message, type: "error" });
         }
@@ -45,7 +47,7 @@ const AddQuestions = () => {
 
     // Send the new question to the server
     axios
-      .post("http://localhost:6002/add-question", { appId: id, text: newQuestion, answer: newAnswer })
+      .post("https://ntuproject.24livehost.com:6003/add-question", { appId: id, text: newQuestion, answer: newAnswer })
       .then((res) => {
         if (res.data.success) {
           setMessage({ text: "Question added successfully!", type: "success" });
@@ -62,7 +64,7 @@ const AddQuestions = () => {
   // Function to handle updating a question
   const handleUpdateQuestion = (id) => {
     axios
-      .put(`http://localhost:6002/update-question/${id}`, { text: updatedText, answer: updatedAnswer })
+      .put(`https://ntuproject.24livehost.com:6003/update-question/${id}`, { text: updatedText, answer: updatedAnswer })
       .then((res) => {
         if (res.data.success) {
           setMessage({ text: "Question updated successfully!", type: "success" });
@@ -81,7 +83,7 @@ const AddQuestions = () => {
   const handleDeleteQuestion = (id) => {
     if (!window.confirm("Are you sure you want to delete this question?")) return;
     axios
-      .delete(`http://localhost:6002/delete-question/${id}`)
+      .delete(`https://ntuproject.24livehost.com:6003/delete-question/${id}`)
       .then((res) => {
         if (res.data.success) {
           setMessage({ text: "Question deleted successfully!", type: "success" });
@@ -100,6 +102,13 @@ const AddQuestions = () => {
         <Navbar />
 
         <h2>Manage Questions</h2>
+
+        {/* Display App Name */}
+        {appName && (
+          <div className="app-name-display">
+            <h3>App Name: {appName}</h3>
+          </div>
+        )}
 
         {/* Display success or error message */}
         {message.text && (
